@@ -1,0 +1,28 @@
+Jan 10 14:20:01 server sshd[1001]: Failed password for root from 192.168.1.10 port 50001 ssh2
+Jan 10 14:20:05 server sshd[1002]: Failed password for root from 192.168.1.10 port 50002 ssh2
+Jan 10 14:20:10 server sshd[1003]: Failed password for root from 192.168.1.10 port 50003 ssh2
+Jan 10 14:20:15 server sshd[1004]: Failed password for root from 192.168.1.10 port 50004 ssh2
+Jan 10 14:20:20 server sshd[1005]: Accepted password for root from 192.168.1.10 port 50005 ssh2
+
+# Password spraying attack
+Jan 10 14:21:01 server sshd[2001]: Failed password for alice from 192.168.1.50 port 51001 ssh2
+Jan 10 14:21:05 server sshd[2002]: Failed password for bob from 192.168.1.50 port 51002 ssh2
+Jan 10 14:21:10 server sshd[2003]: Failed password for charlie from 192.168.1.50 port 51003 ssh2
+Jan 10 14:21:15 server sshd[2004]: Failed password for dave from 192.168.1.50 port 51004 ssh2
+Jan 10 14:21:20 server sshd[2005]: Failed password for eve from 192.168.1.50 port 51005 ssh2
+
+# Normal login behaviour
+Jan 10 14:22:01 server sshd[3001]: Accepted password for melissa from 192.168.1.5 port 52001 ssh2
+Jan 10 14:22:05 server sshd[3002]: Accepted password for john from 192.168.1.6 port 52002 ssh2
+
+# Mixed behaviour (should NOT trigger spraying)
+Jan 10 14:23:01 server sshd[4001]: Failed password for admin from 192.168.1.70 port 53001 ssh2
+Jan 10 14:23:05 server sshd[4002]: Failed password for admin from 192.168.1.70 port 53002 ssh2
+
+# Noise / irrelevant lines
+System reboot initiated
+Connection closed by remote host
+Invalid log entry test test test
+
+# Edge case: invalid user format
+Jan 10 14:24:01 server sshd[5001]: Failed password for invalid user guest from 192.168.1.80 port 54001 ssh2
